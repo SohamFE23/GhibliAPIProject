@@ -1,0 +1,15 @@
+# Ignore everything
+*
+
+# Allow folders (required)
+!*/
+
+# Allow your required files
+!main.py
+!Ghibli*
+!mine*
+!venv/
+
+# Also allow these important files
+!.gitignore
+!requirements.txt
