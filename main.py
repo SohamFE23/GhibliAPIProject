@@ -1,11 +1,17 @@
-API_KEY="AIzaSyACA8_-UBreH9T80cflvJ3GKzh0nQdiiu8"
-
+import os
+from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 from PIL import Image
 from io import BytesIO as bytesIo
 
-client=genai.Client(api_key=API_KEY)
+load_dotenv()
+
+API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("API_KEY")
+if not API_KEY:
+    raise RuntimeError("Missing API key. Set GEMINI_API_KEY in your environment or .env file.")
+
+client = genai.Client(api_key=API_KEY)
 
 image_path=Image.open("vedu(2).jpg")
 prompt="Convert the attached Image into Ghibli Style"
